@@ -117,4 +117,3 @@ Middleware to verify if the logged-in user has admin privileges.
 Running Tests
 You can test the API endpoints using Postman or a similar tool.
 License
-This project is licensed under the MIT License.
