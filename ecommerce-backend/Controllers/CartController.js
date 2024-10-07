@@ -29,17 +29,6 @@ const getCartItems = async (req, res) => {
   }
 };
 
-const getCartItems = async (req, res) => {
-  try {
-    const cartItems = await Cart.findAll({
-    });
-    
-    res.json(cartItems);
-  } catch (error) {
-    res.status(500).json({ message: 'Error retrieving cart', error: error.message });
-  }
-};
-
 const updateCartItem = async (req, res) => {
   const { quantity } = req.body;
 
