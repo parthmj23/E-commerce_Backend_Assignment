@@ -5,7 +5,9 @@ const User = require('./User');
 
 const Cart = sequelize.define('Cart', {
   quantity: { type: DataTypes.INTEGER, allowNull: false, defaultValue: 1 },
-  ProductId: {type: DataTypes.INTEGER, allowNull: false, defaultValue:1}
+  ProductId: {type: DataTypes.INTEGER, allowNull: false, defaultValue:1},
+    UserId: {type: DataTypes.INTEGER, allowNull: false, defaultValue:1}
+
 });
 
 Cart.belongsTo(User);
