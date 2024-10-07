@@ -1,18 +1,31 @@
 const Cart = require('../Models/Cart');
 
 const addToCart = async (req, res) => {
-  const { ProductId, quantity, UserId } = req.body;
+  const { ProductId, quantity } = req.body; 
 
   try {
+    const UserId = req.user.id;
+
     const cartItem = await Cart.create({
       ProductId,   
       quantity,
-      UserId       
+      UserId      
     });
 
     res.status(201).json(cartItem);
   } catch (error) {
     res.status(400).json({ message: 'Adding to cart failed.', error: error.message });
+  }
+};
+
+const getCartItems = async (req, res) => {
+  try {
+    const cartItems = await Cart.findAll({
+    });
+    
+    res.json(cartItems);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving cart', error: error.message });
   }
 };
 
